@@ -1,0 +1,1 @@
+Welcome to the Music App repository! This application allows users to manage their music collection by adding, updating, and deleting songs. The backend is built with Node.js, Express.js, and MongoDB with Mongoose for data storage, while the frontend is developed using React with Redux for state management. The application is Dockerized for easy deployment.
