@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface Song {
-  id: string;
+  _id: string;
   title: string;
   artist: string;
   album: string;
@@ -29,7 +29,7 @@ const deleteSlice = createSlice({
     },
     deleteSongSuccess: (state, action: PayloadAction<string>) => {
       console.log("objects", action.payload)
-      state.songs.filter((song) => song?.id !== action.payload);
+      state.songs.filter((song) => song?._id !== action.payload);
       state.isLoading = false;
     },
     deleteSongFailure: (state, action: PayloadAction<string>) => {

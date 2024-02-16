@@ -86,7 +86,7 @@ const DisplaySong: React.FC = () => {
     }
     setOpenModal(false);
   };
-
+  console.log("object", songs);
   return (
     <div className={classes.root}>
       {isLoading ? (
