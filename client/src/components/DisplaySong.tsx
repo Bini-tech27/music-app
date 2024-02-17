@@ -81,12 +81,12 @@ const DisplaySong: React.FC = () => {
 
   const handleDelete = () => {
     if (selectedSong) {
-      dispatch(deleteSong(selectedSong._id));
+      dispatch(deleteSong(selectedSong));
       navigate("/");
     }
     setOpenModal(false);
   };
-  console.log("object", songs);
+
   return (
     <div className={classes.root}>
       {isLoading ? (

@@ -13,7 +13,6 @@ import {
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-
 const useStyles = makeStyles(() => ({
   root: {
     justifyContent: "center",
@@ -21,12 +20,12 @@ const useStyles = makeStyles(() => ({
     background: "#f8f8f8",
     minHeight: "100vh",
     marginTop: "110px",
-  },}))
-
+  },
+}));
 
 function MusicStatistics() {
   const dispatch: AppDispatch = useDispatch();
-    const classes = useStyles();
+  const classes = useStyles();
   const statistics = useSelector(
     (state: RootState) => state.staticsSlice.songs
   );
@@ -35,11 +34,9 @@ function MusicStatistics() {
     dispatch(fetchStatisticsRequest());
   }, [dispatch]);
 
-  
   return (
     <div className={classes.root}>
       <h1>Music Statistics</h1>
-
       {statistics ? (
         <div>
           <TableContainer component={Paper}>
@@ -112,33 +109,34 @@ function MusicStatistics() {
           </TableContainer>
 
           <h2>Artist Category</h2>
-         <TableContainer component={Paper}>
-  <Table>
-    <TableHead>
-      <TableRow>
-        <TableCell>Artist Name</TableCell>
-        <TableCell>No of Songs</TableCell>
-        <TableCell>No of Albums</TableCell> {/* New column for albums */}
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      {statistics.artistCounts?.map((artist) => (
-        <TableRow key={artist._id}>
-          <TableCell>{artist._id}</TableCell>
-          <TableCell>{artist.count}</TableCell>
-          <TableCell>{artist.albums.length}</TableCell> {/* Display count of albums */}
-        </TableRow>
-      ))}
-    </TableBody>
-  </Table>
-</TableContainer>
-
+          <TableContainer component={Paper}>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Artist Name</TableCell>
+                  <TableCell>No of Songs</TableCell>
+                  <TableCell>No of Albums</TableCell>{" "}
+                  {/* New column for albums */}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {statistics.artistCounts?.map((artist) => (
+                  <TableRow key={artist._id}>
+                    <TableCell>{artist._id}</TableCell>
+                    <TableCell>{artist.count}</TableCell>
+                    <TableCell>{artist.albums.length}</TableCell>{" "}
+                    {/* Display count of albums */}
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </div>
       ) : (
         <p>Loading...</p>
       )}
     </div>
   );
-};
+}
 
 export default MusicStatistics;

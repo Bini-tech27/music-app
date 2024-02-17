@@ -6,7 +6,6 @@ import { postSongs } from "../store/features/slices/addSlice";
 import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
 
-
 const useStyles = makeStyles(() => ({
   root: {
     justifyContent: "center",
@@ -20,27 +19,24 @@ const useStyles = makeStyles(() => ({
     height: "100vh",
   },
 }));
+interface Data {
+  title: string;
+  artist: string;
+  album: string;
+  genre: string;
+}
 
 const AddSong: React.FC = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const classes = useStyles();
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm<SongFormData>();
+  const { register, handleSubmit } = useForm<Data>();
 
-  interface SongFormData {
-    title: string;
-    artist: string;
-    album: string;
-    genre: string;
-  }
-
-  const onSubmit: SubmitHandler<SongFormData> = (data: SongFormData) => {
+  const onSubmit: SubmitHandler<Data> = (data:Data) => {
     dispatch(postSongs(data));
-                  navigate("/");
-
-
-
+    navigate("/");
   };
+
 
   return (
     <div className={classes.root}>
@@ -75,7 +71,7 @@ const AddSong: React.FC = () => {
               label="Genre"
               type="text"
               {...register("genre")}
-              sx={{ width: "600px", marginTop: "20px" , marginBottom:"20px"}}
+              sx={{ width: "600px", marginTop: "20px", marginBottom: "20px" }}
             />
           </Grid>
           <Grid item>
