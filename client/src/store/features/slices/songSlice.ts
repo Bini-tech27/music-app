@@ -20,7 +20,7 @@ const initialState: SongState = {
   error: null,
 };
 
-const songSlice = createSlice({
+const songSlice:any = createSlice({
   name: "songs",
   initialState,
   reducers: {

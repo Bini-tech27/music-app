@@ -93,7 +93,7 @@ const DisplaySong: React.FC = () => {
         <CircularProgress />
       ) : (
         <Grid container spacing={3}>
-          {songs.map((song) => (
+          {songs.map((song:any) => (
             <Grid item xs={12} key={song._id}>
               <Card className={classes.card}>
                 <CardContent className={classes.cardContent}>

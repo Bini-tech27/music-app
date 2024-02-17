@@ -19,7 +19,7 @@ const initialState: DeleteState = {
   error: null,
 };
 
-const deleteSlice = createSlice({
+const deleteSlice: any = createSlice({
   name: "songs",
   initialState,
   reducers: {
@@ -28,8 +28,9 @@ const deleteSlice = createSlice({
       state.error = null;
     },
     deleteSongSuccess: (state, action: PayloadAction<string>) => {
-      console.log("objects", action.payload)
-      state.songs.filter((song) => song?._id !== action.payload);
+      const del = state.songs;
+      const filtered = del.filter((song) => song?._id !== action.payload);
+      state.songs = filtered;
       state.isLoading = false;
     },
     deleteSongFailure: (state, action: PayloadAction<string>) => {

@@ -8,6 +8,7 @@ import {
 import { API_BASE_URL } from "../../../config/endPoint";
 
 interface Song {
+  _id:string;
   title: string;
   artist: string;
   album: string;

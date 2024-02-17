@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../store/app/store";
 import { fetchStatisticsRequest } from "../store/features/slices/staticsSlice";
@@ -26,14 +26,14 @@ const useStyles = makeStyles(() => ({
 function MusicStatistics() {
   const dispatch: AppDispatch = useDispatch();
   const classes = useStyles();
-  const statistics = useSelector(
+  const statistics: any = useSelector(
     (state: RootState) => state.staticsSlice.songs
   );
 
   useEffect(() => {
     dispatch(fetchStatisticsRequest());
   }, [dispatch]);
-
+  console.log("object", statistics);
   return (
     <div className={classes.root}>
       <h1>Music Statistics</h1>
@@ -78,7 +78,7 @@ function MusicStatistics() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {statistics.genreCounts?.map((genre) => (
+                {statistics.genreCounts?.map((genre:any) => (
                   <TableRow key={genre._id}>
                     <TableCell>{genre._id}</TableCell>
                     <TableCell>{genre.count}</TableCell>
@@ -98,7 +98,7 @@ function MusicStatistics() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {statistics.albumCounts?.map((album) => (
+                {statistics.albumCounts?.map((album:any) => (
                   <TableRow key={album._id}>
                     <TableCell>{album._id}</TableCell>
                     <TableCell>{album.count}</TableCell>
@@ -120,12 +120,11 @@ function MusicStatistics() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {statistics.artistCounts?.map((artist) => (
+                {statistics.artistCounts?.map((artist:any) => (
                   <TableRow key={artist._id}>
                     <TableCell>{artist._id}</TableCell>
                     <TableCell>{artist.count}</TableCell>
                     <TableCell>{artist.albums.length}</TableCell>{" "}
-                    {/* Display count of albums */}
                   </TableRow>
                 ))}
               </TableBody>

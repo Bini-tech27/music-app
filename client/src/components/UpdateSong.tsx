@@ -39,7 +39,7 @@ const UpdateSong: React.FC = () => {
   }
   useEffect(() => {
     dispatch(getSongsFetch());
-    const songToUpdate = songs.find((song) => song._id === id);
+    const songToUpdate = songs.find((song:any) => song._id === id);
     if (songToUpdate) {
       setValue("title", songToUpdate.title);
       setValue("artist", songToUpdate.artist);
