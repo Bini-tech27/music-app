@@ -94,7 +94,7 @@ const getMusicStatistics = async (req, res) => {
 
     const statistics = {
       totalSongs,
-      totalArtists: totalArtists[0].count, // Extracting the count from the array
+      totalArtists: totalArtists[0].count, 
       totalAlbums: totalAlbums[0].count,
       totalGenres: totalGenres[0].count,
       genreCounts,
