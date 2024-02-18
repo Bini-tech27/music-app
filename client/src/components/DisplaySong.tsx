@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { AppDispatch, RootState } from "../store/app/store";
 import { getSongsFetch } from "../store/features/slices/songSlice";
-import { deleteSong } from "../store/features/slices/deleteSlice";
+import { deleteSong } from "../store/features/slices/songSlice";
 import { makeStyles } from "@mui/styles";
 import {
   Card,
@@ -56,7 +55,6 @@ const style = {
 };
 
 const DisplaySong: React.FC = () => {
-  const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
   const songs = useSelector((state: RootState) => state.songSlice.songs);
   const isLoading = useSelector(
@@ -82,7 +80,6 @@ const DisplaySong: React.FC = () => {
   const handleDelete = () => {
     if (selectedSong) {
       dispatch(deleteSong(selectedSong));
-      navigate("/");
     }
     setOpenModal(false);
   };

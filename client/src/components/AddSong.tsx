@@ -2,7 +2,7 @@ import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { TextField, Button, Grid } from "@mui/material";
-import { postSongs } from "../store/features/slices/addSlice";
+import { postSongs } from "../store/features/slices/songSlice";
 import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
 

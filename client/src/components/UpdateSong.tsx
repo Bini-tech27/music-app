@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { TextField, Button, Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { updateSong } from "../store/features/slices/updateSlice";
+import { updateSong } from "../store/features/slices/songSlice";
 import { AppDispatch, RootState } from "../store/app/store";
 import { useParams, useNavigate } from "react-router-dom";
 import { getSongsFetch } from "../store/features/slices/songSlice";
